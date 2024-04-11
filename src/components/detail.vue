@@ -4,12 +4,11 @@ import teachers from '../assets/data/teachers.ts'
 import book from '../assets/imgs/book.png'
 import desc from '../assets/imgs/desc.png'
 const route = useRoute();
-const uId = route.query?.id
-const teacher = teachers.find(x => x.id == uId)
-
+const uId = route.query?.uId || 1
+const teacher = teachers.find(x => x.id === uId)
 </script>
 <template>
-    <div class="page bg-#f5f5f5 w-full h-full">
+    <div class="page bg-#f5f5f5 w-full h-full" v-if="teacher">
         <div class="header box-border flex item-center justify-between w-full h-[15.5rem] p-[1.5rem]">
             <div class="info text-white pt-[1.5rem]">
                 <p class="font-size-[1.6rem] line-height-[1.6rem]"> {{ teacher.name }}</p>
@@ -19,18 +18,8 @@ const teacher = teachers.find(x => x.id == uId)
                         class="inline-block border-1px bg-#4d4d59 border-#eee border-solid border-rd-[10px] py-[1px] px-[8px] mr-[5px]">老师</span>
                     <span
                         class="inline-block border-1px bg-#4d4d59 border-#eee border-solid border-rd-[10px] py-[1px] px-[8px] mr-[5px]">从业{{
-                    teacher.experience }}年</span>
+        teacher.experience }}年</span>
                 </div>
-
-                <!-- <div class="goods flex item-center py-[3px]">
-                    <span>擅长：</span>
-                    <div class="">
-                        <span v-for="(good, index) in teacher.goods">
-                            {{ good }}
-                            <span v-if="index !== teacher.goods.length - 1">、</span>
-                        </span>
-                    </div>
-                </div> -->
             </div>
             <img class="w-[7.5rem] h-[7.5rem] border-rd-50" :src="teacher.avatar" alt="">
         </div>

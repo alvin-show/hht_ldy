@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import teachers from '../assets/data/teachers.ts'
-import { Teacher } from '../types/index.ts'
 import book from '../assets/imgs/book.png'
 import desc from '../assets/imgs/desc.png'
 const route = useRoute();

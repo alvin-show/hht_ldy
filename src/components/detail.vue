@@ -4,8 +4,9 @@ import teachers from '../assets/data/teachers.ts'
 import book from '../assets/imgs/book.png'
 import desc from '../assets/imgs/desc.png'
 const route = useRoute();
-const uId = route.query?.uId || 1
-const teacher = teachers.find(x => x.id === uId)
+const uId = route.query?.id || 1
+const teacher = teachers.find(x => x.id === Number(uId))
+
 </script>
 <template>
     <div class="page bg-#f5f5f5 w-full h-full" v-if="teacher">

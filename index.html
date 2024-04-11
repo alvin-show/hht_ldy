@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + Vue + TS</title>
+</head>
+<script>
+  (function (doc, win, undefined) {
+    var docEl = doc.documentElement,
+      resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+      recalc = function () {
+        var clientWidth = docEl.clientWidth;
+        if (clientWidth === undefined) return;
+        docEl.style.fontSize = 10 * (clientWidth / 375) + 'px'; // 设置 根元素html的font-size
+      };
+    if (doc.addEventListener === undefined) return;
+    win.addEventListener(resizeEvt, recalc, false);// 监听窗口改变
+    doc.addEventListener('DOMContentLoaded', recalc, false) // 初始HTML加载和解析完成时
+  })(document, window);
+</script>
+
+<body>
+
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
